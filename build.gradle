@@ -1,5 +1,3 @@
-group 'com.newberry'
-
 buildscript {
 	ext {
 		springBootVersion = '1.5.3.RELEASE'
