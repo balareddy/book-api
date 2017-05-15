@@ -1,0 +1,110 @@
+group 'com.newberry'
+
+buildscript {
+	ext {
+		springBootVersion = '1.5.3.RELEASE'
+	}
+	repositories {
+		maven { url "http://repo.spring.io/milestone" }
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: "jacoco"
+
+def buildNum = hasProperty('build_num') ? build_num : 0
+version = '0.0.' + buildNum
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	maven { url "http://repo.spring.io/milestone" }
+	mavenCentral()
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("org.springframework.boot:spring-boot-configuration-processor")
+	compile("org.springframework.boot:spring-boot-devtools")
+	compile("joda-time:joda-time")
+	compile("com.h2database:h2")
+
+    compile('javax.inject:javax.inject:1')
+    compile('com.google.guava:guava:18.0')
+
+    compile('org.apache.httpcomponents:httpclient:4.4')
+    compile('org.apache.commons:commons-collections4:4.0')
+    compile('org.apache.commons:commons-lang3:3.4')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+
+    // MySQL database related configurations
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('org.yaml:snakeyaml:1.13')
+    compile('mysql:mysql-connector-java:5.1.28')
+
+    compile('org.springframework.data:spring-data-couchbase:1.3.0.RELEASE')
+    compile('com.typesafe.akka:akka-actor_2.11:2.3.9')
+
+    testCompile('org.spockframework:spock-spring:1.0-groovy-2.4')
+    testCompile('org.springframework:spring-test')
+    testCompile('cglib:cglib-nodep:3.2.2')
+    testCompile('cglib:cglib:3.2.2')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("org.springframework.security:spring-security-test")
+}
+
+test {
+	// listen to events in the test execution lifecycle
+	beforeTest { descriptor ->
+		logger.lifecycle('Running test: '.plus(descriptor))
+	}
+
+	testLogging {
+		events 'started', 'passed', 'skipped', 'failed'
+		exceptionFormat = 'full'
+	}
+
+	reports {
+		junitXml.enabled = true
+		html.enabled = true
+	}
+}
+
+jacocoTestReport {
+	reports {
+		xml {
+			enabled true // coveralls plugin depends on xml format report
+		}
+
+		html {
+			enabled true
+		}
+	}
+
+	afterEvaluate {
+		classDirectories = files(classDirectories.files.collect {
+			fileTree(dir: it, exclude:
+					['**/BookApplication',
+					 '**/dao/AuthorRepository',
+					 '**/dao/BookRepository',
+                     '**/model/**',
+					 '**/util/**'
+					])
+		})
+	}
+}
