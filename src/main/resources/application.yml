@@ -14,14 +14,9 @@ endpoints:
 environment:
   hostName: 127.0.0.1
 
-couchbase:
-  controller:
-    enabled: true
-  cluster:
-    bucket: newberry
-    username:
-    password:
-    uriList: 127.0.0.1
+github:
+    url: https://api.github.com/users/whatever
+    client_id: d02686d709dda31d1a63
 
 ---
 
