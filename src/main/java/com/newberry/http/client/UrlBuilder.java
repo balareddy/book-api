@@ -15,10 +15,6 @@ public class UrlBuilder {
     }
 
     public String getUrl(){
-        StringBuilder url = new StringBuilder();
-        url.append(this.gitHubHost);
-        url.append("?client_id=");
-        url.append(this.clientId);
-        return url.toString();
+        return String.format("%s?client_id=%s", this.gitHubHost, this.clientId);
     }
 }
