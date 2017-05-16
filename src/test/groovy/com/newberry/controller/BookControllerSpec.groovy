@@ -6,8 +6,6 @@ import com.newberry.dao.AuthorRepository
 import com.newberry.dao.BookRepository
 import com.newberry.model.Person
 import com.newberry.service.CrudBookService
-import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
 import org.joda.time.LocalDate
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
