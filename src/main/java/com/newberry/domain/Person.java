@@ -1,4 +1,4 @@
-package com.newberry.model;
+package com.newberry.domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;

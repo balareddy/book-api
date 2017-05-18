@@ -1,16 +1,18 @@
-package com.newberry.controller;
+package com.newberry.web;
 
-import com.newberry.model.Book;
-import com.newberry.model.Person;
+import com.newberry.domain.Book;
+import com.newberry.domain.Person;
 import com.newberry.service.BookService;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RestController
+@EnableAutoConfiguration
 @RequestMapping("/")
 public class BookController {
 

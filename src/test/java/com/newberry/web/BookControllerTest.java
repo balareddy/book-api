@@ -1,10 +1,10 @@
-package com.newberry.controller;
+package com.newberry.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.newberry.dao.AuthorRepository;
 import com.newberry.dao.BookRepository;
-import com.newberry.model.Book;
-import com.newberry.model.Person;
+import com.newberry.domain.Book;
+import com.newberry.domain.Person;
 import com.newberry.service.BookService;
 import com.newberry.service.CrudBookService;
 import org.joda.time.LocalDate;
