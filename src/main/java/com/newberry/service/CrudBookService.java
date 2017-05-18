@@ -2,8 +2,8 @@ package com.newberry.service;
 
 import com.newberry.dao.AuthorRepository;
 import com.newberry.dao.BookRepository;
-import com.newberry.model.Book;
-import com.newberry.model.Person;
+import com.newberry.domain.Book;
+import com.newberry.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

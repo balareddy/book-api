@@ -16,12 +16,6 @@ public class LocalDateDeserializer
 	extends JsonDeserializer<LocalDate>
 {
 
-	/**
-	 * {@inheritDoc}
-	 *
-	 * @see JsonDeserializer#deserialize(JsonParser,
-	 *      DeserializationContext)
-	 */
 	@Override
 	public LocalDate deserialize(JsonParser jsonParser, DeserializationContext context)
 		throws IOException, JsonProcessingException

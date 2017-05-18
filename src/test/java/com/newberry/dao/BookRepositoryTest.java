@@ -1,7 +1,7 @@
 package com.newberry.dao;
 
-import com.newberry.model.Book;
-import com.newberry.model.Person;
+import com.newberry.domain.Book;
+import com.newberry.domain.Person;
 import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;

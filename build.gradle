@@ -47,7 +47,6 @@ dependencies {
     compile('org.apache.httpcomponents:httpclient:4.4')
     compile('org.apache.commons:commons-collections4:4.0')
     compile('org.apache.commons:commons-lang3:3.4')
-    compile('org.springframework.boot:spring-boot-starter-actuator')
 
     // MySQL database related configurations
     compile('org.springframework.boot:spring-boot-starter-jdbc')

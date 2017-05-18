@@ -1,7 +1,7 @@
 package com.newberry.service;
 
-import com.newberry.model.Book;
-import com.newberry.model.Person;
+import com.newberry.domain.Book;
+import com.newberry.domain.Person;
 
 import java.util.List;
 

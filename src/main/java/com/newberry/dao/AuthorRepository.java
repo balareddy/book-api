@@ -1,6 +1,6 @@
 package com.newberry.dao;
 
-import com.newberry.model.Person;
+import com.newberry.domain.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
